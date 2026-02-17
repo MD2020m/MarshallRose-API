@@ -1,5 +1,5 @@
 const { db, Product, Review, User } = require('./setup');
-const { Sequlize } = require('sequelize');
+const { Sequelize } = require('sequelize');
 
 async function seedDatabase() {
     try {
@@ -12,14 +12,14 @@ async function seedDatabase() {
             {
                 name: 'Work Jacket',
                 description: 'A sturdy work jacket built for both form and function. Available in multiple colors and fabrics',
-                category: {categories: ['Jackets','Coats','Outerwear']},
+                category: 'outerwear',
                 availableFabrics: {fabrics: ['Corduroy', 'Canvas', 'Denim']},
                 availableDetails: {details: ['Embroidery','Patterned fabric','Flannel lining','Lined pockets']}
             },
             {
                 name: 'Summer Dress',
                 description: 'Keep cool this summer and through many to come in this light summer dress made to last',
-                category: {categories: ['Dresses', 'Summerwear']},
+                category: 'dresses',
                 availableFabrics: {fabrics: ['Cotton', 'Muslin', 'Linen', 'Silk']},
                 availableDetails: {details: ['Embroidery', 'Patterned fabric']}
             }

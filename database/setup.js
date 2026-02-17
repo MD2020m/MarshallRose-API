@@ -25,7 +25,7 @@ const Product = db.define('Product', {
         allowNull: false
     },
     category: {
-        type: DataTypes.JSON,
+        type: DataTypes.STRING,
         allowNull: false
     },
     availableFabrics: {
