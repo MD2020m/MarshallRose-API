@@ -25,15 +25,15 @@ const Product = db.define('Product', {
         allowNull: false
     },
     category: {
-        type: DataTypes.ARRAY(DataTypes.STRING),
+        type: DataTypes.JSON,
         allowNull: false
     },
     availableFabrics: {
-        type: DataTypes.ARRAY(DataTypes.STRING),
+        type: DataTypes.JSON,
         allowNull: false
     },
     availableDetails: {
-        type: DataTypes.ARRAY(DataTypes.STRING),
+        type: DataTypes.JSON,
         allowNull: false
     }
 });
