@@ -1,7 +1,15 @@
 const express = require('express');
-const { db, Product } = require('../database/setup');
 const { Sequelize } = require('sequelize');
 require('dotenv').config();
+
+let db;
+let Product;
+
+if (process.env.NODE_ENV == 'test') {
+    ({ db, Product } = require('../test_database/test_setup'));
+} else {
+    ({db, Product} = require('../database/setup'));
+}
 
 // GET /api/products
 // Returns all products
@@ -37,10 +45,30 @@ async function getProductsByCategory(req, res) {
     }
 }
 
+// POST /api/products
+// Creates a new product
+async function createNewProduct(req, res) {
+    try {
+        const {name, description, category, availableFabrics, availableDetails} = req.body;
 
+        const newProduct = await Product.create({
+            name,
+            description,
+            category,
+            availableFabrics,
+            availableDetails
+        });
+
+        res.status(201).json(newProduct);
+    } catch (error) {
+        console.error('Error creating product: ', error);
+        res.status(500).json({ error: 'Failed to create product' });
+    }
+}
 
 module.exports = {
     getAllProducts,
-    getProductsByCategory
+    getProductsByCategory,
+    createNewProduct
 };
 
