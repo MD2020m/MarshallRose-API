@@ -117,6 +117,25 @@ describe('PUT /api/products/:productId', () => {
     });
 });
 
+describe('DELETE /api/products/:productId', () => {
+    
+    beforeEach(async () => {
+        await seedDatabase();
+    });
+
+    test('should return 200 status when data is deleted successfully', async () => {
+        const response = await request(app).delete('/api/products/1');
+
+        expect(response.status).toBe(200);
+    });
+
+    test('should return 404 status when productId does not match any products', async () => {
+        const response = await request(app).delete('/api/products/10000');
+
+        expect(response.status).toBe(404);
+    });
+});
+
 
 
 
