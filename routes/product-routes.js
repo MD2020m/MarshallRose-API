@@ -89,10 +89,30 @@ async function updateProduct(req, res) {
     }
 }
 
+// DELETE /api/products/:productId
+// Deletes an existing product
+async function deleteProduct(req, res) {
+    try {
+        const deletedRowsCount = await Product.destroy({
+            where: {productId: req.params.productId}
+        });
+
+        if (deletedRowsCount === 0) {
+            return res.status(404).json({ error: 'Product not found' });
+        }
+
+        res.json({ message: 'Product deleted successfully' });
+    } catch (error) {
+        console.error('Error deleting product: ', error);
+        res.status.json({ error: 'Failed to delete product' });
+    }
+}
+
 module.exports = {
     getAllProducts,
     getProductsByCategory,
     createNewProduct,
-    updateProduct
+    updateProduct,
+    deleteProduct
 };
 
