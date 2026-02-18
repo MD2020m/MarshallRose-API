@@ -66,9 +66,33 @@ async function createNewProduct(req, res) {
     }
 }
 
+// PUT /api/products/:productId
+// Updates an existing product
+async function updateProduct(req, res) {
+    try {
+        const {name, description, category, availableFabrics, availableDetails} = req.body;
+        
+        const [updatedRowsCount] = await Product.update(
+            {name, description, category, availableFabrics, availableDetails},
+            { where: {productId: req.params.productId}}
+        );
+    
+        if (updatedRowsCount === 0) {
+            return res.status(404).json({ error: 'Product not found' });
+        }
+    
+        const updatedProduct = await Product.findByPk(req.params.productId);
+        res.json(updatedProduct);
+    } catch (error) {
+        console.error('Error updating product: ', error);
+        res.status(500).json({ error: 'Failed to update product' });
+    }
+}
+
 module.exports = {
     getAllProducts,
     getProductsByCategory,
-    createNewProduct
+    createNewProduct,
+    updateProduct
 };
 

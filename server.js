@@ -1,6 +1,6 @@
 const express = require('express');
 const { getAllProducts, getProductsByCategory,
-    createNewProduct
+    createNewProduct, updateProduct
  } = require('./routes/product-routes');
 
 const app = express();
@@ -14,6 +14,8 @@ app.get('/api/products', getAllProducts);
 app.get('/api/products/:category', getProductsByCategory);
 
 app.post('/api/products', createNewProduct);
+
+app.put('/api/products/:productId', updateProduct);
 
 
 if (require.main === module) {

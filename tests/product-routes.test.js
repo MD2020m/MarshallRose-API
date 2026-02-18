@@ -79,7 +79,7 @@ describe('PUT /api/products/:productId', () => {
     });
 
     test('should return 201 response and updated product', async () => {
-        const response = await request(app).put('/api/products/0').send({
+        const response = await request(app).put('/api/products/1').send({
             name: 'updated',
             description: 'an updated product',
             category: "doesn't matter what this is",
@@ -105,7 +105,7 @@ describe('PUT /api/products/:productId', () => {
     });
 
     test('should return 500 response when invalid data is given', async () => {
-        const response = await request(app).purge('api/products/0').send({
+        const response = await request(app).put('/api/products/0').send({
             name: null,
             description: null,
             category: null,
@@ -114,8 +114,8 @@ describe('PUT /api/products/:productId', () => {
         });
 
         expect(response.status).toBe(500);
-    })
-})
+    });
+});
 
 
 
