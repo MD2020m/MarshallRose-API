@@ -38,14 +38,12 @@ async function seedDatabase() {
 
         const reviews = await Review.bulkCreate([
             {
-                stars: 5,
-                content: 'This is an excellent product. I got mine in brown corduroy with flannel lining on the inside and in the pockets. It has kept me warm for the last five years, I love the way its broken in, and it is clear it is going to last for years to come',
+                roses: 5,
                 productId: products[0].productId,
                 userId: users[1].userId
             },
             {
-                stars: 5,
-                content: null,
+                roses: 5,
                 productId: products[1].productId,
                 userId: users[0].userId
             }

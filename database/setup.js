@@ -44,13 +44,9 @@ const Review = db.define('Review', {
         primaryKey: true,
         autoIncrement: true
     },
-    stars: {
+    roses: {
         type: DataTypes.INTEGER,
         allowNull: false
-    },
-    content: {
-        type: DataTypes.STRING,
-        allowNull: true
     }
 });
 
