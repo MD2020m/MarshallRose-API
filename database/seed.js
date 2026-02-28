@@ -14,14 +14,16 @@ async function seedDatabase() {
                 description: 'A sturdy work jacket built for both form and function. Available in multiple colors and fabrics',
                 category: 'outerwear',
                 availableFabrics: {fabrics: ['Corduroy', 'Canvas', 'Denim']},
-                availableDetails: {details: ['Embroidery','Patterned fabric','Flannel lining','Lined pockets']}
+                availableDetails: {details: ['Embroidery','Patterned fabric','Flannel lining','Lined pockets']},
+                price: 95.00
             },
             {
                 name: 'Summer Dress',
                 description: 'Keep cool this summer and through many to come in this light summer dress made to last',
                 category: 'dresses',
                 availableFabrics: {fabrics: ['Cotton', 'Muslin', 'Linen', 'Silk']},
-                availableDetails: {details: ['Embroidery', 'Patterned fabric']}
+                availableDetails: {details: ['Embroidery', 'Patterned fabric']},
+                price: 70.00
             }
         ]);
 

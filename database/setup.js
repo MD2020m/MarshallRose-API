@@ -35,6 +35,10 @@ const Product = db.define('Product', {
     availableDetails: {
         type: DataTypes.JSON,
         allowNull: false
+    },
+    price: {
+        type: DataTypes.FLOAT,
+        allowNull: false
     }
 });
 
