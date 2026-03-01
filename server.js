@@ -2,11 +2,13 @@ const express = require('express');
 const { getAllProducts, getProductsByCategory,
     createNewProduct, updateProduct, deleteProduct
  } = require('./routes/product-routes');
+ const cors = require('cors');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Implement middleware
+app.use(cors());
 app.use(express.json());
 
 // Product endpoints
