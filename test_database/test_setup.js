@@ -5,7 +5,7 @@ console.log(process.env.DB_TYPE);
 
 const db = new Sequelize({
     dialect: process.env.DB_TYPE,
-    storage: `database/${process.env.DB_NAME}` || 'database/marshall_rose.db',
+    storage: `test_database/${process.env.TEST_DB_NAME}` || 'test_database/test.db',
     logging: false
 });
 
@@ -35,10 +35,6 @@ const Product = db.define('Product', {
     availableDetails: {
         type: DataTypes.JSON,
         allowNull: false
-    },
-    price: {
-        type: DataTypes.FLOAT,
-        allowNull: false
     }
 });
 
@@ -48,9 +44,13 @@ const Review = db.define('Review', {
         primaryKey: true,
         autoIncrement: true
     },
-    roses: {
+    stars: {
         type: DataTypes.INTEGER,
         allowNull: false
+    },
+    content: {
+        type: DataTypes.STRING,
+        allowNull: true
     }
 });
 

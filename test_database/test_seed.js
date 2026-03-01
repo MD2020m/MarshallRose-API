@@ -1,4 +1,4 @@
-const { db, Product, Review, User } = require('./setup');
+const { db, Product, Review, User } = require('./test_setup');
 const { Sequelize } = require('sequelize');
 
 async function seedDatabase() {
@@ -14,16 +14,14 @@ async function seedDatabase() {
                 description: 'A sturdy work jacket built for both form and function. Available in multiple colors and fabrics',
                 category: 'outerwear',
                 availableFabrics: {fabrics: ['Corduroy', 'Canvas', 'Denim']},
-                availableDetails: {details: ['Embroidery','Patterned fabric','Flannel lining','Lined pockets']},
-                price: 95.00
+                availableDetails: {details: ['Embroidery','Patterned fabric','Flannel lining','Lined pockets']}
             },
             {
                 name: 'Summer Dress',
                 description: 'Keep cool this summer and through many to come in this light summer dress made to last',
                 category: 'dresses',
                 availableFabrics: {fabrics: ['Cotton', 'Muslin', 'Linen', 'Silk']},
-                availableDetails: {details: ['Embroidery', 'Patterned fabric']},
-                price: 70.00
+                availableDetails: {details: ['Embroidery', 'Patterned fabric']}
             }
         ]);
 
@@ -40,12 +38,14 @@ async function seedDatabase() {
 
         const reviews = await Review.bulkCreate([
             {
-                roses: 5,
+                stars: 5,
+                content: 'This is an excellent product. I got mine in brown corduroy with flannel lining on the inside and in the pockets. It has kept me warm for the last five years, I love the way its broken in, and it is clear it is going to last for years to come',
                 productId: products[0].productId,
                 userId: users[1].userId
             },
             {
-                roses: 5,
+                stars: 5,
+                content: null,
                 productId: products[1].productId,
                 userId: users[0].userId
             }
@@ -54,11 +54,13 @@ async function seedDatabase() {
         console.log('Database seeded successfully!');
     } catch (error) {
         console.error('Error seeding database: ', error);
-    } finally {
+    }/* finally {
         await db.close();
-    }
+    }*/
 }
 
 if (require.main === module) {
     seedDatabase();
 }
+
+module.exports = {seedDatabase};
