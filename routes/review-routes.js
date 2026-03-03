@@ -38,3 +38,8 @@ async function createNewReview(req, res) {
         res.status(500).json({ error: 'Failed to create review' });
     }
 }
+
+module.exports = {
+    getAllReviews,
+    createNewReview
+};
