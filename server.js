@@ -3,6 +3,7 @@ const { getAllProducts, getProductsByCategory,
     createNewProduct, updateProduct, deleteProduct
  } = require('./routes/product-routes');
  const { getAllReviews, createNewReview } = require('./routes/review-routes');
+ const { getAllUsers, createNewUser } = require('./routes/user-routes');
  const cors = require('cors');
 
 const app = express();
@@ -26,6 +27,10 @@ app.delete('/api/products/:productId', deleteProduct);
 app.get('/api/reviews', getAllReviews);
 
 app.post('/api/reviews', createNewReview);
+
+// User routes
+app.get('/api/users', getAllUsers);
+app.post('/api/users', createNewUser);
 
 
 if (require.main === module) {
