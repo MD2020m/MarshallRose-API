@@ -15,7 +15,7 @@ if (process.env.NODE_ENV == 'test') {
 // Returns all users
 async function getAllUsers(req, res) {
     try {
-        const users = await Users.findAll({});
+        const users = await User.findAll({});
 
         res.json(users);
     } catch (error) {
