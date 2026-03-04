@@ -28,8 +28,8 @@ async function createNewReview(req, res) {
 
         const newReview = await Review.create({
             roses,
-            reviewerId,
-            prodId
+            userId,
+            productId
         });
 
         res.status(201).json(newReview);

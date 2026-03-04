@@ -30,11 +30,13 @@ async function seedDatabase() {
         const users = await User.bulkCreate([
             {
                 username: 'userNumber1',
-                password: 'notHashedYet'
+                password: 'notHashedYet',
+                role: 'regular'
             },
             {
                 username: 'userNumberTwo',
-                password: 'notHashedYet'
+                password: 'notHashedYet',
+                role: 'admin'
             }
         ]);
 

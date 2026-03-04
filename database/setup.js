@@ -67,6 +67,10 @@ const User = db.define('User', {
     password: {
         type: DataTypes.STRING,
         allowNull: false
+    },
+    role: {
+        type: DataTypes.STRING,
+        allowNull: false
     }
 });
 
