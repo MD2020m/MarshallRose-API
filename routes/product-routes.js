@@ -49,14 +49,15 @@ async function getProductsByCategory(req, res) {
 // Creates a new product
 async function createNewProduct(req, res) {
     try {
-        const {name, description, category, availableFabrics, availableDetails} = req.body;
+        const {name, description, category, price, availableFabrics, availableDetails} = req.body;
 
         const newProduct = await Product.create({
             name,
             description,
             category,
             availableFabrics,
-            availableDetails
+            availableDetails,
+            price
         });
 
         res.status(201).json(newProduct);
