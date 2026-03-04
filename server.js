@@ -3,7 +3,7 @@ const { getAllProducts, getProductsByCategory,
     createNewProduct, updateProduct, deleteProduct
  } = require('./routes/product-routes');
  const { getAllReviews, createNewReview } = require('./routes/review-routes');
- const { getAllUsers, createNewUser } = requrie('./routes/user-routes');
+ const { getAllUsers, createNewUser } = require('./routes/user-routes');
  const cors = require('cors');
 
 const app = express();
