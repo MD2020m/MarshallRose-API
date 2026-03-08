@@ -4,7 +4,7 @@ require('dotenv').config();
 console.log(process.env.DB_TYPE);
 
 const db = new Sequelize({
-    dialect: process.env.DB_TYPE,
+    dialect: 'sqlite',
     storage: `test_database/${process.env.TEST_DB_NAME}` || 'test_database/test.db',
     logging: false
 });
