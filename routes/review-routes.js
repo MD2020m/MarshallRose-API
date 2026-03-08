@@ -6,7 +6,7 @@ let db;
 let Review;
 
 if (process.env.NODE_ENV == 'test') {
-    ({ db, Review } = requrie('../test_database/test_setup'));
+    ({ db, Review } = require('../test_database/test_setup'));
 } else {
     ({ db, Review } = require('../database/setup'));
 }
